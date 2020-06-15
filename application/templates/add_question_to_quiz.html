@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% block body_content %}
+
+<div class='form'>
+
+	<form method='POST', action=''>
+		{{ form.hidden_tag() }}
+		<div class='form_group'>
+			<h3>{{ form.question.label }}</h3>
+			{{ form.question }}
+		</div>
+
+<div class='form_group'>
+	{{ form.add_quest }}
+                </div>
+
+
+</form>
+
+
+{% endblock %}
+
