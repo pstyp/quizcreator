@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+
+<h3>Add a question: </h3>
+			
+<div class='form'>
+	<form method='POST' action=''>
+		{{ form.hidden_tag() }}
+	<div class="form-group">
+            {{ form.question.label }}
+            {{ form.question }}
+	    {% if form.question.errors %}
+			<div class="error">
+				{% for error in form.question.errors %}
+				    <span>{{ error }}</span>
+				{% endfor %}
+			</div>
+			{% endif %}
+	</div>
+            <br>
+	    <div class="form-group">
+            {{ form.answer.label }}
+            {{ form.answer }}
+	    {% if form.answer.errors %}
+			<div class="error">
+				{% for error in form.answer.errors %}
+				    <span>{{ error }}</span>
+				{% endfor %}
+			</div>
+			{% endif %}
+		</div>
+		<br>
+		<div class="form-group">
+			{{ form.submit }}
+		</div>
+        </form>
+			
+</div>
+<div>
+<h3>Your questions:</h3>
+{% for question in questions %}
+        <div>
+                <p><b> - Question: </b>{{ question.question }}</p>
+                <p><b> - Answer: </b>{{ question.answer }}</p>
+		  <p><b> - ID: </b>{{ question.id }}</p>
+                        </div>
+
+
+</div>
+
+<a href="update_question/{{question.id}}">Click here to update or delete your question</a>
+
+
+{% endfor %}
+{% endblock body_content %}
