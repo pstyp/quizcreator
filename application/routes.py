@@ -87,9 +87,29 @@ def add_question_to_quiz(id):
         quiz.questions.append(questionData)
         db.session.commit()
         return redirect(url_for('quiz'))
-    return render_template('add_question_to_quiz.html', title='Add question to your quiz', form=form, id=id, quiz=quiz)
+    return render_template('add_question_to_quiz.html', title='Add question to your quiz', form=form, id=id)
 
 
 
 
 
+@app.route('/delete_quiz/<int:id>', methods=['GET', 'POST'])
+def delete_quiz(id):
+    quiz=Quizzes.query.filter_by(id=id).first()
+    db.session.delete(quiz)
+    db.session.commit()
+    return redirect(url_for('quiz'))
+
+
+
+@app.route('/update_quiz/<int:id>', methods=['GET', 'POST'])
+def update_quiz(id):
+    quiz=Quizzes.query.filter_by(id=id).first()
+    form = QuizForm()
+    if form.validate_on_submit():
+        quiz.title=form.title.data
+        db.session.commit()
+        return redirect(url_for('quiz'))
+    elif request.method=='GET':
+        form.title.data=quiz.title
+    return render_template('update_quiz.html', title='Update quiz', form=form, id=id)

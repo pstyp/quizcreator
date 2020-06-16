@@ -27,7 +27,7 @@ class QuizForm(FlaskForm):
         ]
         )
     
-    submit = SubmitField('Create!')
+    submit = SubmitField('Submit!')
 
 class AddQuestionToQuizForm(FlaskForm):
         question=SelectField("Select your questions",
@@ -36,4 +36,4 @@ class AddQuestionToQuizForm(FlaskForm):
                 (question.id, question.question) for question in Questions.query.all()
                 ]
             )
-        add_quest=SubmitField('Add!')
+        add_quest=SubmitField('Add question!')
