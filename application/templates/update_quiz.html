@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block body_content %}
+
+
+<h3>Update {{ form.title.data }}</h3>
+<div class='form'>
+        <form method='POST', action=''>
+        {{ form.hidden_tag() }}
+        {{ form.title.label }}
+        {{ form.title }}
+        {% if form.title.errors %}
+        <div class='error'>
+                {% for error in form.title.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+        </div>
+        {% endif %}
+        <br> <br>
+
+        {{ form.submit }}
+
+</form> 
+
+<form action="{{url_for('delete_quiz', id=id)}}" method="POST">
+        <button type="submit">Click here to delete this quiz</button>
+
+{% endblock %}
+

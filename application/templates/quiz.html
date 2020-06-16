@@ -36,9 +36,14 @@
 	<h4> This quiz consists of the following questions: </h4>
 	{% for question in quiz.questions %}
 	<h5>{{ question.question }}</h5> 
-{% endfor %}				
-	{% endfor %}
+			
 </div>
+{% endfor %}
 <br>
+
+<a href="update_quiz/{{quiz.id}}">Click here to change the title of your quiz or delete it</a>
+<br>
+
+{% endfor %}
 
 {% endblock %}
