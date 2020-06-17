@@ -24,26 +24,30 @@
         </form>
 
 </div>
+<hr>
 <div>
 	<br> <br>
 
 <h2>Your quizzes:</h2>	
 	{% for quiz in quizzes %}
 	<br>
-	<h3>{{ quiz.title }}</h3>
-	<h4>Added on {{ quiz.date }}</h4>
+	<h3><u>{{ quiz.title }}</u></h3>
+	<h6>>Added on {{ quiz.date }}</h6>
 	<a href="quiz/add_question_to_quiz/{{quiz.id}}">Add question</a>
 	<h4> This quiz consists of the following questions: </h4>
 	{% for question in quiz.questions %}
-	<h5>{{ question.question }}</h5> 
+	<h5> <li>{{ question.question }}</li></h5>
 			
 </div>
 {% endfor %}
+<div>
 <br>
 
 <a href="update_quiz/{{quiz.id}}">Click here to change the title of your quiz or delete it</a>
+<hr>
 <br>
 
+</div>
 {% endfor %}
 
 {% endblock %}
