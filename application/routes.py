@@ -113,3 +113,4 @@ def update_quiz(id):
     elif request.method=='GET':
         form.title.data=quiz.title
     return render_template('update_quiz.html', title='Update quiz', form=form, id=id)
+
