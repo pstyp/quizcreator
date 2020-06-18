@@ -82,6 +82,7 @@ def delete_question(id):
 def add_question_to_quiz(id):
     quiz=Quizzes.query.filter_by(id=id).first()
     form=AddQuestionToQuizForm()
+    form.question.choices=[(question.id, question.question) for question in Questions.query.all()]
     if form.validate_on_submit():
         questionData=Questions.query.filter_by(id=form.question.data).first()
         quiz.questions.append(questionData)

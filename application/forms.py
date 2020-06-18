@@ -33,7 +33,7 @@ class AddQuestionToQuizForm(FlaskForm):
         question=SelectField("Select your questions",
             coerce=int,
             choices=[
-                (question.id, question.question) for question in Questions.query.all()
+
                 ]
             )
         add_quest=SubmitField('Add question!')
