@@ -28,12 +28,6 @@ class TestBase(TestCase):
         db.create_all()
         db.session.commit()
 
-        quiz=Quizzes(title='QuizTest')
-        question=Questions(question='question1', answer='answer1')
-
-        db.session.add(quiz)
-        db.session.add(question)
-        db.session.commit()
 
     def create_test_quiz(self):
         return self.client.post(
@@ -140,3 +134,15 @@ class TestPosts(TestBase):
         with self.client:
             response=self.client.get(url_for('questions'))
             self.assertEqual(response.status_code, 200)
+
+    def test_add_question(self):
+        self.create_test_question()
+        self.create_test_quiz()
+        response=self.client.post(
+                '/quiz/add_question_to_quiz/1',
+                data=dict(
+                    question='My question',
+                    ),
+                follow_redirects=True
+                )
+        self.assertIn(b'My question', response.data)
