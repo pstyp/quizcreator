@@ -34,7 +34,25 @@ class TestBase(TestCase):
         db.session.add(quiz)
         db.session.add(question)
         db.session.commit()
-        
+
+    def create_test_quiz(self):
+        return self.client.post(
+                url_for('quiz'),
+                data=dict(
+                    title='My quiz',
+                    ),
+                follow_redirects=True
+                )
+    def create_test_question(self):
+        return self.client.post(
+                url_for('questions'),
+                data=dict(
+                    question='My question',
+                    answer='My answer'
+                    ),
+                follow_redirects=True
+                )
+
     def tearDown(self):
         """
         Will be called after every test
@@ -63,6 +81,62 @@ class TestViews(TestBase):
         self.assertEqual(response.status_code, 200)
 
 
+class TestPosts(TestBase):
+    def test_add_quiz(self):
+        with self.client:
+            response=self.create_test_quiz()
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(b'My quiz', response.data)
+        with self.client:
+            response=self.client.get(url_for('quiz'))
+            self.assertEqual(response.status_code, 200)
+  
+    def test_update_quiz(self):
+        self.create_test_quiz()
+        response=self.client.post(
+                'update_quiz/1',
+                data=dict(
+                    title='New name',
+                    ),
+                follow_redirects=True
+                )
+        self.assertIn(b'New name', response.data)
+
+    def test_remove_quiz(self):
+        self.create_test_quiz()
+        before_count=Quizzes.query.count()
+        self.client.post('/delete_quiz/1',
+                follow_redirects=True
+                )
+        after_count=Quizzes.query.count()
+        assert before_count>after_count
 
 
+    def test_delete_question(self):
+        self.create_test_question()
+        before_count=Questions.query.count()
+        self.client.post('/delete_question/1',
+                follow_redirects=True
+                )
+        after_count=Questions.query.count()
+        assert before_count>after_count
 
+    def test_update_question(self):
+        self.create_test_question()
+        response=self.client.post(
+                'update_question/1',
+                data=dict(
+                    question='New question', 
+                    ),
+                follow_redirects=True
+                )
+        self.assertIn(b'New question', response.data)
+
+    def test_question(self):
+        with self.client:
+            response=self.create_test_question()
+            self.assertEqual(response.status_code, 200)
+            self.assertIn(b'My question', response.data)
+        with self.client:
+            response=self.client.get(url_for('questions'))
+            self.assertEqual(response.status_code, 200)
