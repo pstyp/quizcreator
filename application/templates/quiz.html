@@ -27,13 +27,17 @@
 <hr>
 <div>
 	<br> <br>
-
+	<table>
 <h2>Your quizzes:</h2>	
 	{% for quiz in quizzes %}
-	<br>
-	<h3><u>{{ quiz.title }}</u></h3>
-	<h6>>Added on {{ quiz.date }}</h6>
-	<a href="quiz/add_question_to_quiz/{{quiz.id}}">Add question</a>
+	<tr>
+		<td>	<h3><u>{{ quiz.title }}</u></h3></td>
+		<td>	<h6>>Added on {{ quiz.date }}</h6></td>
+	</tr>
+	<tr>
+			<td>	<a href="quiz/add_question_to_quiz/{{quiz.id}}">Add question</a> </td>
+			</tr>
+			<table>
 	<h4> This quiz consists of the following questions: </h4>
 	{% for question in quiz.questions %}
 	<h5> <li>{{ question.question }}</li></h5>
