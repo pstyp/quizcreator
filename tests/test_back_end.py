@@ -95,6 +95,9 @@ class TestPosts(TestBase):
                 follow_redirects=True
                 )
         self.assertIn(b'New name', response.data)
+        with self.client:
+            response=self.client.get(url_for('quiz'))
+            self.assertEqual(response.status_code, 200)
 
     def test_remove_quiz(self):
         self.create_test_quiz()
@@ -120,11 +123,16 @@ class TestPosts(TestBase):
         response=self.client.post(
                 'update_question/1',
                 data=dict(
-                    question='New question', 
+                    question='New question',
+                    answer='New answer'
                     ),
                 follow_redirects=True
                 )
         self.assertIn(b'New question', response.data)
+        self.assertIn(b'New answer', response.data)
+        with self.client:
+            response=self.client.get(url_for('questions'))
+            self.assertEqual(response.status_code, 200)
 
     def test_question(self):
         with self.client:
@@ -146,6 +154,9 @@ class TestPosts(TestBase):
                 follow_redirects=True
                 )
         self.assertIn(b'My question', response.data)
+        with self.client:
+            response=self.client.get(url_for('quiz'))
+            self.assertEqual(response.status_code, 200)
 
 
     def test_question_message(self):
@@ -159,4 +170,21 @@ class TestPosts(TestBase):
                     follow_redirects=True
                     )
             self.assertIn(b'Field must be between 2 and 100 characters long.', response.data)
+
+    def test_db_quiz(self):
+        quiz1=Quizzes(title='Intest')
+        db.session.add(quiz1)
+        db.session.commit()
+        quiz=Quizzes.query.all()
+        assert repr(quiz)=='[ID: 1\r\nTitle: Intest\r\n]'
+
+    def test_db_questions(self):
+        question1=Questions(question='Intest', answer='Intest')
+        db.session.add(question1)
+        db.session.commit()
+        question=Questions.query.all()
+        assert repr(question)=='[Question: Intest\r\nAnswer: Intest\r\nID: 1\r\n]'
+
+                 
+
                         
