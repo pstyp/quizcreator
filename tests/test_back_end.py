@@ -146,3 +146,17 @@ class TestPosts(TestBase):
                 follow_redirects=True
                 )
         self.assertIn(b'My question', response.data)
+
+
+    def test_question_message(self):
+        with self.client:
+            response=self.client.post(
+                    url_for('questions'),
+                    data=dict(
+                        question='s',
+                        answer='testans'
+                        ),
+                    follow_redirects=True
+                    )
+            self.assertIn(b'Field must be between 2 and 100 characters long.', response.data)
+                        
