@@ -35,7 +35,7 @@ I have decided to produce a simple 'quiz creator'. My application allows the use
 
 ## Architecture
 
-### Database structure
+* ### Database structure
 
 My entity-relationship diagram has evolved throughout the project. 
 
@@ -51,7 +51,7 @@ My second ERD consisted of 'questions' and 'quiz' tables. Although this would ha
 
 Finally, I decided to create two parent tables and one child table for many-to-many relationship. Whilst this approach came with its own challenges, I believe it helped me make the application as good as it could be. At the moment, the user can add as many questions to their questions as they want. 
 
-### CI Pipeline
+* ### CI Pipeline
 
 ![cipipeline](https://github.com/pstyp/images/blob/master/CI%20pipeline.png)
 
