@@ -1,0 +1,15 @@
+I added the following to my  /tmp/flask.service file in my Jenkins VM. Then I copied it using this command: sudo cp /tmp/flask.service /etc/systemd/system/flask.service. 
+
+Please note I have removed MY_DATABASE_URI and MY_SECRET_KEY data for security reasons. 
+
+[Unit]
+Description=Quiz Creator
+[Service]
+User=jenkins
+Environment=OUTPUT_FILE=/tmp/output.txt
+Environment=MY_DATABASE_URI=*removed*
+Environment=MY_SECRET_KEY=*removed*
+ExecStart=/bin/sh -c '. /home/jenkins/install.sh'
+[Install]
+WantedBy=multi-user.target
+~                                         
