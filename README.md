@@ -2,14 +2,14 @@
 
 
 ## Contents
-1. [Brief](##Brief)
-2. [Architecture](##Architecture)
-3. [Risk Assessment](##RiskAssessment)
-4. [Testing](##Testing)
-5. [Front-End Design](##Front-EndDesign)
-6. [Future Improvements](##FutureImprovements)
-7. [Acknowledgements](##Acknowledgements)
-8. [Author](##Author)
+1. [Brief](#brief)
+2. [Architecture](#architecture)
+3. [Risk Assessment](#risk-assessment)
+4. [Testing](#testing)
+5. [Front-End Design](#front-end-design)
+6. [Future Improvements](#future-improvements)
+7. [Acknowledgements](#acknowledgements)
+8. [Author](#author)
 
 
 
