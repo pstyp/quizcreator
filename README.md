@@ -61,9 +61,14 @@ My application is stored in a Virtual Machine instance managed by Google Cloud P
 
 As previously mentioned, I used a Trello board for project tracking. I created several user stories with features that I would like to include in my application. Then, I separated them into different categories - 'must-have' features (green) and 'could-have' features (yellow). This is because I knew I might not have enough time to implement all features I would like. As such, I decided to prioritise CRUD functionality. 
 
+You can view my trello board here: https://trello.com/b/iM8JwI0p/qaproject
+
 ![trello](https://github.com/pstyp/images/blob/master/Trello.png)
 
 ## Risk Assessment
+
+You can view my risk assessment here: https://docs.google.com/spreadsheets/d/19VzldfOn8aUcIxoz9JbuTDzyOg4hTSKihSr6BjtGV3A/edit?usp=sharing
+
 ![riskassessment](https://github.com/pstyp/images/blob/master/Risk_assessment.png)
 
 
