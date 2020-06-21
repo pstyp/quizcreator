@@ -3,7 +3,7 @@
 
 ## Contents
 1. [Brief](##Brief)
-2. Architecture(##Architecture)
+2. [Architecture](##Architecture)
 3. Risk Assessment 
 4. Testing
 5. Front-End Design
