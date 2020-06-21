@@ -45,7 +45,7 @@ My next ERD consisted of 'questions' and 'quiz' tables. Although this would have
 
 Finally, I decided to create two parent tables and one child table for many-to-many relationship. Whilst this approach came with its own challenges, I believe it helped me make the application as good as it could be. At the moment, the user can add as many questions to their questions as they want. 
 
-## CI Pipeline
+### CI Pipeline
 
 My application is stored in a Virtual Machine instance managed by Google Cloud Platform. My continuous integration pipeline allows for quick development-to-deploymen cycle. I used git for for version control and GitHub as my remote repository. I also used Jenkins as my CI server. Jenkins can clone my GitHub repository and then run my application as a systemd service. Additionally, I used to Trello for project tracking and pytest for testing.
 
