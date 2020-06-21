@@ -55,7 +55,7 @@ Finally, I decided to create two parent tables and one child table for many-to-m
 
 ![cipipeline](https://github.com/pstyp/images/blob/master/CI%20pipeline.png)
 
-My application is stored in a Virtual Machine instance managed by Google Cloud Platform. I used Python as my source code with Flask as my micro-framework. My continuous integration pipeline allows for quick development-to-deployment cycle. I used git for version control and GitHub as my remote repository. I also used Jenkins as my CI server. Jenkins can clone my GitHub repository and then run my application as a systemd service in the background. I used pytest for unit testing and I utilised some selenium modules for integration testing. Additionally, I used to Trello for project tracking.
+My application is stored in a Virtual Machine instance managed by Google Cloud Platform. I used Python as my source code with Flask as my micro-framework. My continuous integration pipeline allows for quick development-to-deployment cycle. I used git for version control and GitHub as my remote repository. I also used Jenkins as my CI server. Jenkins can clone my GitHub repository and then run my application as a systemd service in the background. I used pytest for unit testing and I utilised some selenium modules for integration testing. Additionally, I used a Trello board for project tracking.
 
 ![jenkins](https://github.com/pstyp/images/blob/master/jenkins.png)
 
@@ -78,7 +78,9 @@ You can view my risk assessment here: https://docs.google.com/spreadsheets/d/19V
 
 ![testcoverage](https://github.com/pstyp/images/blob/master/test_coverage.png)
 
-I used pytest to test my code. For this project, I was required to use both unit and integration testing. My test coverage for the backend is currently at 90 per cent. Unfortunately, I have not been able to test every line of code due to strict time constraints, but I believe this coverage should be sufficient for this project. All tests have passed successfully. Despite my efforts, I have not been able to find any major bugs. Nevertheless, whilst running the application I noticed that adding a quiz with the same title results in an integrity error. This constraint does not apply to questions. I did not believe it was a major problem and as such the issue remains unresolved. Given more time, I would attempt to fix this bug. 
+I used pytest to test my code. For this project, I was required to use both unit and integration testing. I used a wide range of tests. I focused on testing CRUD functionality (i.e. adding, updating and removing questions as well as quizzes) as that was the main focus of this project. I also tested whether or not users are redirected to the right URL and if they get a message when they try to add a question that is too short as this could potentially have a huge impact on their impression of the application. There are also two tests which focused specifically on models.py as I tried to make sure that my models work correctly. Finally, my integretation tests checks if users can add a quiz without any problems. My test coverage for the backend is currently at 90 per cent. Unfortunately, I have not been able to test every line of code due to strict time constraints, but I believe this coverage should be sufficient for this project. All tests have passed successfully. More in-depth testing was out of scope as my time was extremely limited. 
+
+Despite my efforts, I have not been able to find any major bugs which does not necessarily mean they do not exist. Nevertheless, whilst running the application I noticed that adding a quiz with the same title results in an integrity error. This constraint does not apply to questions. I did not believe it was a major problem and as such the issue remains unresolved. Given more time, I would attempt to fix this bug. 
 
 ## Front-End Design
 
