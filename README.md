@@ -57,6 +57,8 @@ Finally, I decided to create two parent tables and one child table for many-to-m
 
 My application is stored in a Virtual Machine instance managed by Google Cloud Platform. I used Python as my source code with Flask as my micro-framework. My continuous integration pipeline allows for quick development-to-deployment cycle. I used git for version control and GitHub as my remote repository. I also used Jenkins as my CI server. Jenkins can clone my GitHub repository and then run my application as a systemd service in the background. I used pytest for unit testing and I utilised some selenium modules for integration testing. Additionally, I used to Trello for project tracking.
 
+![jenkins](https://github.com/pstyp/images/blob/master/jenkins.png)
+
 ## Project Tracking
 
 As previously mentioned, I used a Trello board for project tracking. I created several user stories with features that I would like to include in my application. Then, I separated them into different categories - 'must-have' features (green) and 'could-have' features (yellow). This is because I knew I might not have enough time to implement all features I would like. As such, I decided to prioritise CRUD functionality. 
