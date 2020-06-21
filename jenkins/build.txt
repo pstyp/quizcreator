@@ -1,0 +1,11 @@
+I use another VM to run the application  as a systemd process using Jenkins.
+
+This is my build:
+
+Excute shell:
+
+
+git clone https://github.com/pstyp/quizcreator /home/jenkins/project/quizcreator 2> /dev/null || (cd /home/jenkins/project/quizcreator ; git pull)
+sudo systemctl stop flask
+sudo systemctl daemon-reload
+sudo systemctl start flask
