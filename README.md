@@ -39,13 +39,21 @@ I have decided to produce a simple 'quiz creator'. My application allows the use
 
 My entity-relationship diagram has evolved throughout the project. 
 
+![erd1](https://github.com/pstyp/images/blob/master/Erd1.png)
+
 As you can see in the first image my initial ERD included only user and question tables. However, I quickly realised that this would not be appropriate for the project.
 
-My next ERD consisted of 'questions' and 'quiz' tables. Although this would have been appropriate for the project, I decided against after a while. If I had implemented this table, the user would only be able to add three questions. Additionally, this kind of database structure turned out to be more challenging to implement than anticipated. 
+![erd2](https://github.com/pstyp/images/blob/master/Erd2.png)
+
+My second ERD consisted of 'questions' and 'quiz' tables. Although this would have been appropriate for the project, I decided against after a while. If I had implemented this table, the user would only be able to add three questions. Additionally, this kind of database structure turned out to be more challenging to implement than anticipated. 
+
+![erd3](https://github.com/pstyp/images/blob/master/Erd3.png)
 
 Finally, I decided to create two parent tables and one child table for many-to-many relationship. Whilst this approach came with its own challenges, I believe it helped me make the application as good as it could be. At the moment, the user can add as many questions to their questions as they want. 
 
 ### CI Pipeline
+
+![cipipeline](https://github.com/pstyp/images/blob/master/CI%20pipeline.png)
 
 My application is stored in a Virtual Machine instance managed by Google Cloud Platform. I used Python as my source code with Flask as my micro-framework. My continuous integration pipeline allows for quick development-to-deployment cycle. I used git for version control and GitHub as my remote repository. I also used Jenkins as my CI server. Jenkins can clone my GitHub repository and then run my application as a systemd service in the background. I used pytest for unit testing and I utilised some selenium modules for integration testing. Additionally, I used to Trello for project tracking.
 
@@ -53,16 +61,22 @@ My application is stored in a Virtual Machine instance managed by Google Cloud P
 
 As previously mentioned, I used a Trello board for project tracking. I created several user stories with features that I would like to include in my application. Then, I separated them into different categories - 'must-have' features (green) and 'could-have' features (yellow). This is because I knew I might not have enough time to implement all features I would like. As such, I decided to prioritise CRUD functionality. 
 
+![trello](https://github.com/pstyp/images/blob/master/Trello.png)
+
 ## Risk Assessment
+![riskassessment](https://github.com/pstyp/images/blob/master/Risk_assessment.png)
 
 
 ## Testing
+
+![testcoverage](https://github.com/pstyp/images/blob/master/test_coverage.png)
 
 I used pytest to test my code. For this project, I was required to use both unit and integration testing. My test coverage for the backend is currently at 90 per cent. Unfortunately, I have not been able to test every line of code due to strict time constraints, but I believe this coverage should be sufficient for this project. All tests have passed successfully. Despite my efforts, I have not been able to find any major bugs. Nevertheless, whilst running the application I noticed that adding a quiz with the same title results in an integrity error. This constraint does not apply to questions. I did not believe it was a major problem and as such the issue remains unresolved. Given more time, I would attempt to fix this bug. 
 
 ## Front-End Design
 
 The front-end of my application is rather simple and uses basic HTML. However, it was important to me to make the application at least somewhat presentable. As such, I changed the background of the application and used different fonts. In addition, I made the navigation bar more noticeable. 
+![frontenddesign](https://github.com/pstyp/images/blob/master/frontend.png)
 
 ## Future Improvements
 
@@ -77,6 +91,7 @@ There are a number of improvements I would like to make. As I mentioned earlier,
 * I think it would be useful if users were able to select the difficulty of questions and quizzes. 
 
 Inevitably, there are many other things that could be improved. Nevertheless, I believe that this list outlines the most important improvements.  
+
 ## Acknowledgements
 
 I would like to thank my trainers for their guidance and help throughout the project. Without them this project would have never been finished. 
