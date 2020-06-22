@@ -105,7 +105,7 @@ There are a number of improvements I would like to make. As I mentioned earlier,
 * I believe users should be able to register and save their quizzes/questions.
 * I think it would be useful if users were able to select the difficulty of questions and quizzes. 
 
-Inevitably, there are many other things that could be improved. Nevertheless, I believe that this list outlines the most important ideas.   
+Inevitably, there are many other things that could be improved and as such this list is not exhaustive. Nevertheless, this list outlines the most important ideas.  
 
 ## Acknowledgements
 
