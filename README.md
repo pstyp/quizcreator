@@ -7,7 +7,7 @@
 3. [Architecture](#architecture)
 4. [Project Tracking](#project-tracking)
 5. [Risk Assessment](#risk-assessment)
-6. [Testing](#testing)
+6. [Testing and Bugs](#testing-and-bugs)
 7. [Front-End Design](#front-end-design)
 8. [Future Improvements](#future-improvements)
 9. [Acknowledgements](#acknowledgements)
@@ -35,17 +35,17 @@ I have decided to produce a simple 'quiz creator'. My application allows the use
 
 ## Architecture
 
-* ### Database structure
+1. #### Database structure
 
 My entity-relationship diagram has evolved throughout the project. 
 
-* #### First ERD
+2. #### First ERD
 
 ![erd1](https://github.com/pstyp/images/blob/master/Erd1.png)
 
 As you can see in the image above, my initial ERD included only user and question tables. However, I quickly realised that this would not be appropriate for the project as I had to produce two SQL tables other than users/posts. 
 
-* #### Second ERD
+3. #### Second ERD
 
 ![erd2](https://github.com/pstyp/images/blob/master/Erd2.png)
 
@@ -80,13 +80,13 @@ You can view my risk assessment here: https://docs.google.com/spreadsheets/d/19V
 ![riskassessment](https://github.com/pstyp/images/blob/master/Risk_assessment.png)
 
 
-## Testing
+## Testing and bugs
 
 ![testcoverage](https://github.com/pstyp/images/blob/master/test_coverage.png)
 
 I used pytest to test my code. For this project, I was required to use both unit and integration testing. I used a wide range of tests. I focused on testing CRUD functionality (i.e. adding, updating and removing questions as well as quizzes) as that was the main focus of this project. I also tested whether or not users are redirected to the right URL and if they get a message when they try to add a question that is too short as this could potentially have a huge impact on their impression of the application. There are also two tests which focused specifically on models.py as I tried to make sure that my models work correctly. Finally, my integretation test checks if users can add a quiz without any problems. My test coverage for the back-end is currently at 90 per cent. Unfortunately, I have not been able to test every line of code due to strict time constraints, but I believe that this coverage should be sufficient for this project. All tests have passed successfully. More in-depth testing was out of scope as my time was extremely limited. 
 
-Despite my efforts, I have not been able to find any major bugs which does not necessarily mean they do not exist. Nevertheless, whilst running the application I noticed that adding a quiz with the same title results in an integrity error. This constraint does not apply to questions. I did not believe it was a major problem and as such the issue remains unresolved. Given more time, I would attempt to fix this bug. 
+At an early stage of the development process I found a bug which prevented the user from adding new questions without restarting the application. This was caused by the fact that my code in forms.py did not run every time refreshed the page. This was fixed by moving this line of code to routes.py. Despite my efforts, I have not been able to find any major bugs after this, which does not necessarily mean they do not exist. Nevertheless, whilst running the application I noticed that adding a quiz with the same title results in an integrity error. This constraint does not apply to questions. I did not believe it was a major problem and as such the issue remains unresolved. Given more time, I would attempt to fix this bug. 
 
 ## Front-End Design
 
